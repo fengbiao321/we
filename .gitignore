@@ -1,0 +1,6 @@
+#IntelliJ
+*.iml
+*/*.iml
+
+#some local files
+.idea/
