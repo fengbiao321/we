@@ -15,7 +15,8 @@
     <mvc:annotation-driven />
 
     <!-- 加载spring中的资源文件 -->
-    <context:property-placeholder location="classpath:db.properties" />
+    <context:property-placeholder location="classpath:db.properties,classpath:sysConfig.properties"
+                                  ignore-unresolvable="true"/>
 
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">

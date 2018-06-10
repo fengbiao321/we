@@ -15,7 +15,8 @@
     <mvc:annotation-driven />
 
     <!-- 加载spring中的资源文件 -->
-    <context:property-placeholder location="classpath:db.properties" />
+    <context:property-placeholder location="classpath:db.properties,classpath:sysConfig.properties"
+                                  ignore-unresolvable="true"/>
 
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
@@ -45,5 +46,11 @@
     <!--使用注释事务 -->
     <tx:annotation-driven  transaction-manager="transactionManager" />
 
+    <!-- 获取MyBatis 批量更新-->
+    <bean id="sqlSessionTemplateBatch" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory" />
+        <!--更新采用批量的executor -->
+        <constructor-arg index="1" value="BATCH"/>
+    </bean>
 
 </beans>

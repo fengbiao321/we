@@ -4,3 +4,9 @@
 
 #some local files
 .idea/
+
+#class file
+*.class
+
+#
+*/target/*.*

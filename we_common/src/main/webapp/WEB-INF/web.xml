@@ -55,6 +55,15 @@
   </context-param>
 
   <servlet>
+    <servlet-name>firstServlet</servlet-name>
+    <servlet-class>myJunit.servlet.MatchPathTestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>firstServlet</servlet-name>
+    <url-pattern>/first/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
     <servlet-name>SpringMvc</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
