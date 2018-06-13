@@ -12,7 +12,12 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Objects;
 
-public class MatchPathTestServlet extends HttpServlet {
+/**
+ * @Auther: biao.feng
+ * @Date: 2018/6/9 17:56
+ * @Description: 基础servlet转发
+ */
+public class BaseForwardProxyServlet extends HttpServlet {
 
     public static String GET_METHOD = "GET";
 

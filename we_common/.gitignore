@@ -1,0 +1,10 @@
+#IntelliJ
+*.iml
+*/*.iml
+
+#some local files
+.idea/
+
+#class file
+*.class
+target/

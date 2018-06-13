@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
- * @Auther: fengbiao
+ * @Auther: biao.feng
  * @Date: 2018/6/9 17:46
  * @Description: 系统配置参数
  */

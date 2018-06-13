@@ -56,7 +56,7 @@
 
   <servlet>
     <servlet-name>firstServlet</servlet-name>
-    <servlet-class>myJunit.servlet.MatchPathTestServlet</servlet-class>
+    <servlet-class>myJunit.servlet.BaseForwardProxyServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>firstServlet</servlet-name>

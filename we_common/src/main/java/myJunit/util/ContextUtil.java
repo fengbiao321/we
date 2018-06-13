@@ -1,8 +1,5 @@
 package myJunit.util;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
 import org.springframework.util.StringUtils;
 
 import java.io.*;
