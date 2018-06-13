@@ -7,6 +7,4 @@
 
 #class file
 *.class
-
-#
-*/target/*.*
+target/
