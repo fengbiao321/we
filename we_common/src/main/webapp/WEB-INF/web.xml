@@ -54,15 +54,17 @@
     <param-value>classpath:global-spring.xml</param-value>
   </context-param>
 
+  <!--测试servlet转发功能-->
   <servlet>
     <servlet-name>firstServlet</servlet-name>
-    <servlet-class>myJunit.servlet.BaseForwardProxyServlet</servlet-class>
+    <servlet-class>myJunit.servlet.TestForwardServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>firstServlet</servlet-name>
     <url-pattern>/first/*</url-pattern>
   </servlet-mapping>
 
+  <!--请求处理-->
   <servlet>
     <servlet-name>SpringMvc</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
