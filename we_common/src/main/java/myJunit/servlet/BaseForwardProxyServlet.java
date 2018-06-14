@@ -84,7 +84,7 @@ public class BaseForwardProxyServlet extends HttpServlet {
     }
 
     /**
-     * 获取转发请求路径
+     * 获取转发请求路径，如果是get请求，并拼接请求参数
      *
      * @param rootPath
      * @param request
