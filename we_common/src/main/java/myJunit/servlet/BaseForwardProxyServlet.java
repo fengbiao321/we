@@ -36,10 +36,10 @@ public abstract class BaseForwardProxyServlet extends HttpServlet {
         //设置请求格式
         connection.setConnectTimeout(5 * 1000);         // 设置访问超时时间
         connection.setRequestMethod(GET_METHOD);       // 设置请求方式
-        connection.setDoInput(false);                    // 设置是否从httpUrlConnection读入
+        connection.setDoInput(true);                   // 设置是否从httpUrlConnection读入
         connection.setUseCaches(true);                  // 设置是否使用缓存
         connection.setInstanceFollowRedirects(true);    // 设置此 HttpURLConnection 实例是否应该自动执行 HTTP 重定向
-        connection.setDoOutput(true);                   // 设置是否向HttpURLConnection输出，带参
+        connection.setDoOutput(false);                   // 设置是否向HttpURLConnection输出，带参
         connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
         connection.setRequestProperty("Connection", "Keep-Alive");              // 维持长连接
         connection.setRequestProperty("Charset", "UTF-8");
@@ -100,7 +100,7 @@ public abstract class BaseForwardProxyServlet extends HttpServlet {
         String pathInfo = request.getPathInfo();
 
         if (Objects.equals(request.getMethod(), GET_METHOD)) {
-            pathInfo = pathInfo.concat("?").concat(request.getQueryString());
+            pathInfo = pathInfo.substring(1).concat("?").concat(ContextUtil.nvl(request.getQueryString(), ""));
         }
         return ContextUtil.nvl(rootPath, "") + ContextUtil.nvl(pathInfo, "");
     }

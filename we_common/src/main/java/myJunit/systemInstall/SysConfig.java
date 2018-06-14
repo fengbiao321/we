@@ -1,5 +1,6 @@
 package myJunit.systemInstall;
 
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -9,9 +10,18 @@ import org.springframework.stereotype.Component;
  * @Description: 系统配置参数
  */
 @Component
-public class SysConfig {
+public class SysConfig implements InitializingBean {
 
     public static String testRootURL = "";
+
+    /**
+     * 初始化加载系统配置参数
+     * @throws Exception
+     */
+    @Override
+    public void afterPropertiesSet() throws Exception {
+
+    }
 
     @Value("${testURL}")
     public  void setTestRootURL(String testRootURL) {

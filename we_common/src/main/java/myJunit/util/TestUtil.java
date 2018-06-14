@@ -1,5 +1,6 @@
 package myJunit.util;
 
+import com.google.common.collect.Maps;
 import org.junit.Test;
 
 import java.io.BufferedInputStream;
@@ -60,5 +61,19 @@ public class TestUtil {
         System.out.println(out);
 
     }
+
+    @Test
+    public void testJson (){
+
+        Map<String, Object> map = Maps.newHashMap();
+        map.put("fsfs",1);
+        map.put("fsfsfsfsfsf",2);
+        String string = JsonUtils.parse2BeautifulJsonString(map);
+        System.out.println(string);
+
+        System.out.println(JsonUtils.parse2JsonString(map));
+
+    }
+
 
 }
