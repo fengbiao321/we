@@ -74,5 +74,11 @@ public class TestServiceStatusController {
         return i+"";
     }
 
+    @RequestMapping("/testAOP")
+    @ResponseBody
+    @myTestAnnotation
+    public Object testAOP () {
+        return 123;
+    }
 
 }

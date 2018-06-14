@@ -143,6 +143,18 @@
             <version>4.1.6.RELEASE</version>
         </dependency>
         <!-- Mybatis3.4.1 end-->
+        <!--aop start-->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.8.9</version>
+        </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.2.4</version>
+        </dependency>
+        <!--aop end-->
     </dependencies>
 
 

@@ -11,7 +11,7 @@
 
     <artifactId>we_common</artifactId>
     <version>add_user_height</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <name>we_common Maven Webapp</name>
     <!-- FIXME change it to the project's website -->
