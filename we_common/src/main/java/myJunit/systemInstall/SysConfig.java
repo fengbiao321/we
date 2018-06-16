@@ -16,6 +16,7 @@ public class SysConfig implements InitializingBean {
 
     /**
      * 初始化加载系统配置参数
+     *
      * @throws Exception
      */
     @Override
@@ -23,8 +24,19 @@ public class SysConfig implements InitializingBean {
 
     }
 
+    /**
+     * 获取配置属性
+     * @param key
+     * @param <T>
+     * @return
+     */
+    public static <T> T getConfig(String key){
+        //TODO 在这里维护一个map用与保存配置信息
+        return null;
+    }
+
     @Value("${testURL}")
-    public  void setTestRootURL(String testRootURL) {
+    public void setTestRootURL(String testRootURL) {
         SysConfig.testRootURL = testRootURL;
     }
 }

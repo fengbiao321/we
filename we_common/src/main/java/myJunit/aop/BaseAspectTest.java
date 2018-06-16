@@ -13,11 +13,11 @@ public class BaseAspectTest {
     /**
      * 定义起前置方法
      */
-    public void before (){
+    public void before() {
         System.out.println("日志开始记录");
     }
 
-    public void after (){
+    public void after() {
         System.out.println("日志记录完成");
     }
 

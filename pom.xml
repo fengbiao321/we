@@ -155,6 +155,15 @@
             <version>3.2.4</version>
         </dependency>
         <!--aop end-->
+
+        <!--dom4j解析xml相关 start-->
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <!--dom4j解析xml相关 end-->
+
     </dependencies>
 
 

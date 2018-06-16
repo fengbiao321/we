@@ -50,10 +50,11 @@ public abstract class BaseForwardProxyServlet extends HttpServlet {
 
     /**
      * 处理返回流数据
+     *
      * @param inputStream
      * @param outputStream
      */
-    public void dealRemoteStream (InputStream inputStream, OutputStream outputStream) throws IOException {
+    public void dealRemoteStream(InputStream inputStream, OutputStream outputStream) throws IOException {
 
         if (inputStream == null || outputStream == null) {
             return;
@@ -72,11 +73,11 @@ public abstract class BaseForwardProxyServlet extends HttpServlet {
         } catch (IOException e) {
             e.printStackTrace();
             //TODO 这里记录日志
-        }finally{
+        } finally {
             if (bufferedInputStream != null) {
                 bufferedInputStream.close();
             }
-            if (bufferedOutputStream != null){
+            if (bufferedOutputStream != null) {
                 bufferedOutputStream.close();
             }
         }
