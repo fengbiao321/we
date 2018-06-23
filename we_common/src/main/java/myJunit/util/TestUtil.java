@@ -1,6 +1,7 @@
 package myJunit.util;
 
 import com.google.common.collect.Maps;
+import myJunit.bean.User;
 import org.junit.Test;
 
 import java.io.BufferedInputStream;
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -72,6 +74,22 @@ public class TestUtil {
         System.out.println(string);
 
         System.out.println(JsonUtils.parse2JsonString(map));
+
+    }
+
+    /**
+     * 测试ThreadLocal是否可用于并发控制
+     */
+    @Test
+    public void testThreadLocal (){
+
+    }
+
+    @Test
+    public void testSerilize (){
+        User user = new User();
+        user.setBirthday(new Date());
+        System.out.println(JsonUtils.parse2JsonString(user));
 
     }
 

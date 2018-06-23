@@ -1,5 +1,12 @@
 package myJunit.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import myJunit.systemInstall.serialize.DateJsonSerialize;
+
+import java.util.Date;
+
 public class User {
     //id
     private String id;
@@ -7,10 +14,14 @@ public class User {
     private String name;
     //年龄
     private String age;
-
+    @JsonIgnore
     private Home home;
 
     private String height;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd",timezone = "GMT+8")
+//   @JsonSerialize(using = DateJsonSerialize.class)
+    private Date birthday;
 
     public String getHeight() {
         return height;
@@ -18,6 +29,22 @@ public class User {
 
     public void setHeight(String height) {
         this.height = height;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public Home getHome() {
+        return home;
+    }
+
+    public void setHome(Home home) {
+        this.home = home;
     }
 
     public static class Home{

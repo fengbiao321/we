@@ -1,7 +1,6 @@
 package myJunit.servlet;
 
-import myJunit.systemInstall.SysConfig;
-import myJunit.util.ContextUtil;
+import myJunit.util.ContextUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -101,9 +100,9 @@ public abstract class BaseForwardProxyServlet extends HttpServlet {
         String pathInfo = request.getPathInfo();
 
         if (Objects.equals(request.getMethod(), GET_METHOD)) {
-            pathInfo = pathInfo.substring(1).concat("?").concat(ContextUtil.nvl(request.getQueryString(), ""));
+            pathInfo = pathInfo.substring(1).concat("?").concat(ContextUtils.nvl(request.getQueryString(), ""));
         }
-        return ContextUtil.nvl(rootPath, "") + ContextUtil.nvl(pathInfo, "");
+        return ContextUtils.nvl(rootPath, "") + ContextUtils.nvl(pathInfo, "");
     }
 
 }

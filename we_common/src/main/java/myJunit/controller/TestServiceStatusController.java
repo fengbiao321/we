@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -79,6 +80,14 @@ public class TestServiceStatusController {
     @myTestAnnotation
     public Object testAOP () {
         return 123;
+    }
+
+    @RequestMapping("/testSeri")
+    @ResponseBody
+    public Object testSerilizable() {
+        User user = new User();
+        user.setBirthday(new Date());
+        return user;
     }
 
 }

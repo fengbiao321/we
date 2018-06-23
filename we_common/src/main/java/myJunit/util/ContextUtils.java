@@ -12,9 +12,9 @@ import java.net.URLEncoder;
  *
  * 工具类一般设置为私有化构造器,如果不希望别人个改变类的本意可使用final进行修饰，如果提供基础方放希望扩展的话可以构造成抽象类
  */
-public abstract class ContextUtil {
+public abstract class ContextUtils {
 
-    private ContextUtil() {
+    private ContextUtils() {
 
     }
 
@@ -33,6 +33,11 @@ public abstract class ContextUtil {
         return source.trim();
     }
 
+    /**
+     * 转换url中中文数据
+     * @param value
+     * @return
+     */
     public static String getURLEncoderValue(String value) {
         if (StringUtils.isEmpty(value)) {
             return "";
@@ -43,6 +48,16 @@ public abstract class ContextUtil {
             e.printStackTrace();
         }
         return value;
+    }
+
+    /**
+     * 判断数组是不是null或者空数组
+     * @param args
+     * @return 为null或者是空数组返回true
+     */
+    public static Boolean ArraysIsNullOrEmpty(Object[] args) {
+
+        return args == null || args.length == 0 ? Boolean.TRUE : Boolean.FALSE;
     }
 
 }

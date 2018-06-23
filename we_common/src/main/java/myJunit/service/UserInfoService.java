@@ -1,9 +1,10 @@
 package myJunit.service;
 
+import myJunit.constant.RspCodeMsg;
 import myJunit.dao.UserInfoMapper;
+import myJunit.exception.RspRuntimeException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -16,7 +17,8 @@ public class UserInfoService {
     UserInfoMapper userInfoMapper;
 
     public Integer userTotalCount(){
-        return userInfoMapper.countUser();
+        throw new RspRuntimeException(RspCodeMsg.SYSTEM_UNKNOWN);
+//        return userInfoMapper.countUser();
     }
 
     public int batchUpdateUserInfo(List<Map<String,Object>> userinfo){
