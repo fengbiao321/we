@@ -4,6 +4,7 @@ import myJunit.constant.RspCodeMsg;
 import myJunit.dao.UserInfoMapper;
 import myJunit.exception.RspRuntimeException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,6 +37,21 @@ public class UserInfoService {
 //            throw new RuntimeException();
 //        }
         return i;
+    }
+
+    @Async
+    public void sendMessage() {
+        /**
+         * 模拟注册异步发送邮件等操作
+         */
+        System.out.println("调用发送邮件服务");
+
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("邮件发送成功");
     }
 
 }

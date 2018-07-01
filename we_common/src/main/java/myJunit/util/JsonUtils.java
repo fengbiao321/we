@@ -16,12 +16,13 @@ public class JsonUtils {
 
     }
 
-    private static ObjectMapper objectMapper = new ObjectMapper();
+    private static ObjectMapper objectMapper;
 
     /**
      * 静态块设置json序列化相关参数
      */
     static {
+        objectMapper =  new ObjectMapper();
         // 忽略在json字符串中存在,但是在java对象中不存在对应属性的情况
         objectMapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }

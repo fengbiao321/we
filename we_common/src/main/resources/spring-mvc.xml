@@ -5,16 +5,21 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:task="http://www.springframework.org/schema/task"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
-       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+      http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd">
 
     <import resource="spring-aop.xml"/>
 
     <context:component-scan base-package="myJunit"/>
     <!-- 开启驱动器注解 -->
     <mvc:annotation-driven />
+
+    <!-- 支持异步方法执行 -->
+    <task:annotation-driven executor="poolTaskExecutor"/>
 
     <!-- 加载spring中的资源文件 -->
     <context:property-placeholder location="classpath:db.properties,classpath:sysConfig.properties"
@@ -54,5 +59,8 @@
         <!--更新采用批量的executor -->
         <constructor-arg index="1" value="BATCH"/>
     </bean>
+
+    <!--基于spring的异步处理方式-->
+    <task:executor id="poolTaskExecutor" pool-size="5"/>
 
 </beans>

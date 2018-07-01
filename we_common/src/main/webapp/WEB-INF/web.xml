@@ -38,6 +38,15 @@
   BeanFactory这样一来spring中的所有bean都由这个类来创建
    IUploaddatafileManager uploadmanager = (IUploaddatafileManager)    ContextLoaderListener.getCurrentWebApplicationContext().getBean("uploadManager");
    -->
+  <filter>
+    <filter-name>requestIpFilter</filter-name>
+    <filter-class>myJunit.filter.RequestIpFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>requestIpFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
