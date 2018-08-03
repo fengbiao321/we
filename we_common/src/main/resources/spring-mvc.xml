@@ -18,9 +18,6 @@
     <!-- 开启驱动器注解 -->
     <mvc:annotation-driven />
 
-    <!-- 支持异步方法执行 -->
-    <task:annotation-driven executor="poolTaskExecutor"/>
-
     <!-- 加载spring中的资源文件 -->
     <context:property-placeholder location="classpath:db.properties,classpath:sysConfig.properties"
                                   ignore-unresolvable="true"/>
@@ -60,7 +57,9 @@
         <constructor-arg index="1" value="BATCH"/>
     </bean>
 
-    <!--基于spring的异步处理方式-->
+    <!-- 基于spring支持异步方法执行 : 如果想要自定义一些线程相关的信息，可以实现AsyncTaskExecutor接口 -->
+    <task:annotation-driven executor="poolTaskExecutor"/>
+
     <task:executor id="poolTaskExecutor" pool-size="5"/>
 
 </beans>
