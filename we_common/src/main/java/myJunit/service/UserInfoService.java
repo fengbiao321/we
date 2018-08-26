@@ -1,8 +1,11 @@
 package myJunit.service;
 
+import myJunit.annotation.myTestAnnotation;
 import myJunit.constant.RspCodeMsg;
 import myJunit.dao.UserInfoMapper;
 import myJunit.exception.RspRuntimeException;
+import org.springframework.aop.framework.AopContext;
+import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -39,7 +42,20 @@ public class UserInfoService {
         return i;
     }
 
-    @Async
+    /**
+     * 中间方法，用于测试本类调用后者存在切面情况
+     */
+    @myTestAnnotation
+    public  void test() {
+        System.out.println("已进入到中间方法中-----");
+//        ((UserInfoService)AopContext.currentProxy()).sendMessage();
+        this.sendMessage();
+        System.out.println(AopUtils.isAopProxy(this));
+        System.out.println(AopUtils.isCglibProxy(this));
+        System.out.println("中间方法以结束-------");
+    }
+
+    @myTestAnnotation
     public void sendMessage() {
         /**
          * 模拟注册异步发送邮件等操作

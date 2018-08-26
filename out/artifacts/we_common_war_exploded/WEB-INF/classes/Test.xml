@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--测试xml配置文件的解析-->
+<app>
+    <tag>你好世界</tag>
+
+    <exlist>
+        <url>www.baidu.com</url>
+    </exlist>
+</app>

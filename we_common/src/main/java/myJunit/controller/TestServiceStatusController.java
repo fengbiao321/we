@@ -5,6 +5,8 @@ import com.google.common.collect.Maps;
 import myJunit.annotation.ApiRequest;
 import myJunit.annotation.myTestAnnotation;
 import myJunit.bean.User;
+import myJunit.constant.Response;
+import myJunit.constant.RspCodeMsg;
 import myJunit.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -76,26 +78,14 @@ public class TestServiceStatusController {
         return i + "";
     }
 
-    @RequestMapping("/testAOP")
-    @ResponseBody
-    @myTestAnnotation
-    public Object testAOP() {
-        return 123;
-    }
-
-    @RequestMapping("/testSeri")
-    @ResponseBody
-    public Object testSerilizable() {
-        User user = new User();
-        user.setBirthday(new Date());
-        return user;
-    }
-
     @ApiRequest
-    @RequestMapping("/testRange")
     @ResponseBody
-    public Object testRange() {
-        return Boolean.FALSE;
+    @RequestMapping("/testAop")
+    public Object AopJunit() {
+
+        userInfoService.test();
+
+        return new Response(RspCodeMsg.SYSTEM_DEAL_SUCCESS);
     }
 
 }

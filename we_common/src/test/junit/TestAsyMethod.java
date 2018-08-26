@@ -2,6 +2,7 @@ package junit;
 
 import myJunit.bean.ImmutableBean;
 import myJunit.util.DateUtils;
+import net.sf.cglib.proxy.Enhancer;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.BeanUtils;
@@ -74,6 +75,22 @@ public class TestAsyMethod {
             System.out.println("finally");
             return 3;
         }
+    }
+
+    @Test
+    public void testAop() {
+       /* MyTest target = new MyTest();
+        TestAop testAop = new TestAop();
+        MyTest proxy = (MyTest) testAop.getInstance(target);
+        proxy.method1();*/
+
+        Enhancer enhancer = new Enhancer(); //创建加强器，用来创建动态代理类
+        enhancer.setSuperclass(MyTest.class);  //为加强器指定要代理的业务类（即：为下面生成的代理类指定父类）
+        //设置回调：对于代理类上所有方法的调用，都会调用CallBack，而Callback则需要实现intercept()方法进行拦
+        enhancer.setCallback(new TestAop());
+        MyTest proxy = (MyTest) enhancer.create();
+        proxy.method1();
+        System.out.println("proxy class name:" + proxy.getClass().getName());
     }
 
 }
