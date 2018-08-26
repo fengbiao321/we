@@ -27,7 +27,7 @@ public class AspectUtils {
         if (signature instanceof MethodSignature) {
             MethodSignature methodSignature = (MethodSignature) signature;
             //tag + 类全名 + 方法名
-            return ContextUtils.nvl(tag, "") + methodSignature.getDeclaringTypeName() + methodSignature.getName();
+            return ContextUtils.nvl(tag, "") + methodSignature.getDeclaringTypeName()+ "." + methodSignature.getName();
         }
         return "None_Interface_MonitorKey";
     }

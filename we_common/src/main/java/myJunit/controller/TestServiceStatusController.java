@@ -2,6 +2,7 @@ package myJunit.controller;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import myJunit.annotation.ApiRequest;
 import myJunit.annotation.myTestAnnotation;
 import myJunit.bean.User;
 import myJunit.service.UserInfoService;
@@ -27,11 +28,11 @@ public class TestServiceStatusController {
     UserInfoService userInfoService;
 
     @RequestMapping("/postmanTest")
-    public ModelAndView postManTest(@RequestParam String account,@RequestParam String password,RedirectAttributes attr){
-        System.out.println("zhanghao"+account+"密码"+password);
+    public ModelAndView postManTest(@RequestParam String account, @RequestParam String password, RedirectAttributes attr) {
+        System.out.println("zhanghao" + account + "密码" + password);
 //        ModelAndView mav = new ModelAndView("redirect:/WEB-INF/test/success.jsp");
         ModelAndView mav = new ModelAndView("redirect:/test/redirect");
-        attr.addFlashAttribute("account","1");
+        attr.addFlashAttribute("account", "1");
 //        attr.addAttribute("account","扎三");
 //        User user = new User();
 //        user.setName("zhansa");
@@ -41,44 +42,44 @@ public class TestServiceStatusController {
     }
 
     @RequestMapping("/RepsoneRedirect")
-    public void testRepsoneRedirect(HttpServletResponse response,RedirectAttributes attr) throws IOException {
-        attr.addFlashAttribute("account","1");
+    public void testRepsoneRedirect(HttpServletResponse response, RedirectAttributes attr) throws IOException {
+        attr.addFlashAttribute("account", "1");
         response.sendRedirect("/test/redirect.do");
 
     }
 
     @RequestMapping("/show")
-    public void postReturnVoid(Model model, @RequestParam("name") String myName){
+    public void postReturnVoid(Model model, @RequestParam("name") String myName) {
 //        Map<String,Object> map = Maps.newHashMap();
-        model.addAttribute("name","zhangsn");
+        model.addAttribute("name", "zhangsn");
     }
 
     @RequestMapping("/redirect")
     @ResponseBody
-    public String testRedirect(@ModelAttribute("account") String account){
+    public String testRedirect(@ModelAttribute("account") String account) {
         return account;
     }
 
     @ResponseBody
     @RequestMapping("/testException")
     public String testExceptionRollBack() throws Exception {
-        List<Map<String,Object>> mapList = Lists.newArrayList();
-        Map<String,Object> zhansan = Maps.newHashMap();
-        zhansan.put("name","张三");
-        zhansan.put("age","105");
+        List<Map<String, Object>> mapList = Lists.newArrayList();
+        Map<String, Object> zhansan = Maps.newHashMap();
+        zhansan.put("name", "张三");
+        zhansan.put("age", "105");
         mapList.add(zhansan);
-        Map<String,Object> lisi = Maps.newHashMap();
-        lisi.put("name","李四");
-        lisi.put("age","0");
+        Map<String, Object> lisi = Maps.newHashMap();
+        lisi.put("name", "李四");
+        lisi.put("age", "0");
         mapList.add(lisi);
         int i = userInfoService.batchUpdateUserInfoException(mapList);
-        return i+"";
+        return i + "";
     }
 
     @RequestMapping("/testAOP")
     @ResponseBody
     @myTestAnnotation
-    public Object testAOP () {
+    public Object testAOP() {
         return 123;
     }
 
@@ -90,4 +91,12 @@ public class TestServiceStatusController {
         return user;
     }
 
+    @ApiRequest
+    @RequestMapping("/testRange")
+    @ResponseBody
+    public Object testRange() {
+        return Boolean.FALSE;
+    }
+
 }
+
